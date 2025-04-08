@@ -34,15 +34,15 @@ conn_str = (
     f'PWD={password}'
 )
 
-# 📥 Route to get guidelines data
 @app.get("/guidelines")
 def read_guidelines():
     try:
         with pyodbc.connect(conn_str) as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM guidelines")
+            cursor.execute("SELECT * FROM guidelines_summary")
             columns = [column[0] for column in cursor.description]
             results = [dict(zip(columns, row)) for row in cursor.fetchall()]
         return {"data": results}
     except Exception as e:
         return {"error": str(e)}
+
