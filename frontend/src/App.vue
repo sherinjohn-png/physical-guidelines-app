@@ -17,7 +17,9 @@ import { ref, onMounted } from 'vue'
 const guidelines = ref([])
 
 onMounted(async () => {
-  const response = await fetch('http://127.0.0.1:8000/guidelines')
+  const response = await fetch('https://activity-guidelines-api-dwgghmfahygthbgb.australiaeast-01.azurewebsites.net')
+    
+  // const response = await fetch('http://127.0.0.1:8000/guidelines')
   const json = await response.json()
   guidelines.value = json.data
 })
