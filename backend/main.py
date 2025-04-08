@@ -7,7 +7,7 @@ app = FastAPI()
 # ✅ Enable CORS so frontend (localhost:5173) can access API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://proud-pond-0423fb900.6.azurestaticapps.net/guidelines"],  # Vue dev server
+    allow_origins=["http://localhost:5173", "https://proud-pond-0423fb900.6.azurestaticapps.net"],  # Vue dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
